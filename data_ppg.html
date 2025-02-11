@@ -10,10 +10,19 @@
     <h1>Diagram Pie Tracer Study</h1>
     
     <div id="chart-2019" style="width: 500px; height: 400px;"></div>
+    <button onclick="downloadChart('chart-2019', 'Tracer_Study_2019')">Download 2019</button>
+    
     <div id="chart-2020" style="width: 500px; height: 400px;"></div>
+    <button onclick="downloadChart('chart-2020', 'Tracer_Study_2020')">Download 2020</button>
+    
     <div id="chart-2021" style="width: 500px; height: 400px;"></div>
+    <button onclick="downloadChart('chart-2021', 'Tracer_Study_2021')">Download 2021</button>
+    
     <div id="chart-2022" style="width: 500px; height: 400px;"></div>
+    <button onclick="downloadChart('chart-2022', 'Tracer_Study_2022')">Download 2022</button>
+    
     <div id="chart-2023" style="width: 500px; height: 400px;"></div>
+    <button onclick="downloadChart('chart-2023', 'Tracer_Study_2023')">Download 2023</button>
 
     <script>
         function createChart(container, year, data) {
@@ -32,6 +41,17 @@
                     name: 'Persentase',
                     data: data
                 }]
+            });
+        }
+
+        function downloadChart(container, filename) {
+            Highcharts.charts.forEach(chart => {
+                if (chart && chart.renderTo.id === container) {
+                    chart.exportChart({
+                        type: 'image/png',
+                        filename: filename
+                    });
+                }
             });
         }
 
