@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram Pie Tracer Study</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    <h1>Diagram Pie Tracer Study</h1>
+    
+    <div id="chart-2019" style="width: 500px; height: 400px;"></div>
+    <div id="chart-2020" style="width: 500px; height: 400px;"></div>
+    <div id="chart-2021" style="width: 500px; height: 400px;"></div>
+    <div id="chart-2022" style="width: 500px; height: 400px;"></div>
+    <div id="chart-2023" style="width: 500px; height: 400px;"></div>
+
+    <script>
+        function createChart(container, year, data) {
+            Highcharts.chart(container, {
+                chart: { type: 'pie' },
+                title: { text: 'Tracer Study ' + year },
+                plotOptions: {
+                    pie: {
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}: {point.y:.2f}%'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Persentase',
+                    data: data
+                }]
+            });
+        }
+
+        createChart('chart-2019', '2019', [
+            { name: 'Bekerja', y: 81.82 },
+            { name: 'Belum memungkinkan bekerja', y: 0.00 },
+            { name: 'Wiraswasta', y: 13.64 },
+            { name: 'Melanjutkan Pendidikan', y: 0.00 },
+            { name: 'Tidak Kerja tetapi sedang mencari kerja', y: 4.55 }
+        ]);
+
+        createChart('chart-2020', '2020', [
+            { name: 'Bekerja', y: 90.70 },
+            { name: 'Belum memungkinkan bekerja', y: 0.00 },
+            { name: 'Wiraswasta', y: 5.43 },
+            { name: 'Melanjutkan Pendidikan', y: 0.00 },
+            { name: 'Tidak Kerja tetapi sedang mencari kerja', y: 3.88 }
+        ]);
+
+        createChart('chart-2021', '2021', [
+            { name: 'Bekerja', y: 85.64 },
+            { name: 'Belum memungkinkan bekerja', y: 1.03 },
+            { name: 'Wiraswasta', y: 9.23 },
+            { name: 'Melanjutkan Pendidikan', y: 1.03 },
+            { name: 'Tidak Kerja tetapi sedang mencari kerja', y: 3.08 }
+        ]);
+
+        createChart('chart-2022', '2022', [
+            { name: 'Bekerja', y: 91.46 },
+            { name: 'Belum memungkinkan bekerja', y: 0.00 },
+            { name: 'Wiraswasta', y: 6.40 },
+            { name: 'Melanjutkan Pendidikan', y: 1.22 },
+            { name: 'Tidak Kerja tetapi sedang mencari kerja', y: 0.91 }
+        ]);
+
+        createChart('chart-2023', '2023', [
+            { name: 'Bekerja', y: 87.37 },
+            { name: 'Belum memungkinkan bekerja', y: 1.05 },
+            { name: 'Wiraswasta', y: 6.32 },
+            { name: 'Melanjutkan Pendidikan', y: 1.05 },
+            { name: 'Tidak Kerja tetapi sedang mencari kerja', y: 4.21 }
+        ]);
+    </script>
+</body>
+</html>
